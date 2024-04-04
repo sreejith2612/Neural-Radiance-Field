@@ -8,30 +8,30 @@ from PIL import Image
 from io import BytesIO
 
 
-data_dir = r"C:\Users\sreej\OneDrive\Documents\DatasetCreation\Data4"
+data_dir = r"C:\Users\sreej\OneDrive\Documents\DatasetCreation\Data6"
 transforms_file = os.path.join(data_dir, "transforms.json")
 input_dir = os.path.join(data_dir,"images")
 output_dir = input_dir
 
-# Iterate over all files in the input directory
-for filename in os.listdir(input_dir):
-    if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-        input_path = os.path.join(input_dir, filename)
-        output_path = os.path.join(output_dir, os.path.splitext(filename)[0] + '.jpg')  # Change '.jpeg' to '.jpg'
+if False:
+    for filename in os.listdir(input_dir):
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
+            input_path = os.path.join(input_dir, filename)
+            output_path = os.path.join(output_dir, os.path.splitext(filename)[0] + '.jpg')  # Change '.jpeg' to '.jpg'
 
-        # Open the image
-        with open(input_path, 'rb') as input_file:
-            input_image = input_file.read()
+            # Open the image
+            with open(input_path, 'rb') as input_file:
+                input_image = input_file.read()
 
-            # Remove the background
-            output_image = remove(input_image)
+                # Remove the background
+                output_image = remove(input_image)
 
-            # Save the output image in JPEG format
-            image = Image.open(BytesIO(output_image))
-            image = image.convert("RGB")  # Convert to RGB to ensure compatibility with JPEG
-            image.save(output_path, 'JPEG')  # Change 'JPEG' to 'JPG'
+                # Save the output image in JPEG format
+                image = Image.open(BytesIO(output_image))
+                image = image.convert("RGB")  # Convert to RGB to ensure compatibility with JPEG
+                image.save(output_path, 'JPEG')  # Change 'JPEG' to 'JPG'
 
-print("Background removal complete.")
+    print("Background removal complete.")
 
 
 file_paths = []
@@ -57,8 +57,8 @@ def preprocess_image(img_path):
     img = cv2.imread(img_path)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     # Resize image to 100x100
-    width, height = img.size
-    img_resized = cv2.resize(img, (500, int(500*width/height)))
+    width, height, _ = img.shape
+    img_resized = cv2.resize(img, (100, int(100*width/height)))
     # Convert image to float32 and scale to range [0, 1]
     img_rescaled = img_resized.astype(np.float32) / 255.0
     return img_rescaled
@@ -96,7 +96,7 @@ output_file = os.path.join(data_dir, "focal.npy")
 np.save(output_file, focal)
 np.save('focal.npy', focal)
 
-print("Preprocessed images saved to:", output_file)
+print("Preprocessed the data")
 
 npy_files = ['images.npy', 'poses.npy', 'focal.npy']
 
@@ -116,3 +116,5 @@ for npy_file in npy_files:
 
 # Save the data dictionary as a .npz file
 np.savez('new_data.npz', **data_dict)
+
+print("Data saved as .npz file")
