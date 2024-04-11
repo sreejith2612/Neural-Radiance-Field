@@ -3,7 +3,7 @@ import json
 import cv2
 import numpy as np
 
-data_dir = r"C:\Users\sreej\OneDrive\Documents\DatasetCreation\Data2"
+data_dir = r"C:\Users\sreej\OneDrive\Documents\DatasetCreation\data8"
 transforms_file = os.path.join(data_dir, "transforms.json")
 
 # List to store file paths
@@ -87,4 +87,4 @@ for npy_file in npy_files:
     data_dict[variable_name] = data
 
 # Save the data dictionary as a .npz file
-np.savez('combined_data.npz', **data_dict)
+np.savez('3image.npz', **data_dict)

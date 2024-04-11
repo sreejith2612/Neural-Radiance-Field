@@ -8,12 +8,12 @@ from PIL import Image
 from io import BytesIO
 
 
-data_dir = r"C:\Users\sreej\OneDrive\Documents\DatasetCreation\Data6"
+data_dir = r"C:\Users\sreej\OneDrive\Documents\DatasetCreation\data8"
 transforms_file = os.path.join(data_dir, "transforms.json")
 input_dir = os.path.join(data_dir,"images")
 output_dir = input_dir
 
-if False:
+if True:
     for filename in os.listdir(input_dir):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
             input_path = os.path.join(input_dir, filename)
@@ -89,7 +89,7 @@ output_file = os.path.join(data_dir, "poses.npy")
 np.save(output_file, poses)
 np.save('poses.npy', poses)
 
-focal = np.array(138.88887889922103,dtype=np.float64)
+focal = np.array(140,dtype=np.float64)
 print(focal.shape)
 
 output_file = os.path.join(data_dir, "focal.npy")
