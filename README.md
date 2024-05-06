@@ -1,4 +1,3 @@
-```markdown
 # Flat to Fat: 3D model reconstruction using NeRFs
 
 ## Abstract
