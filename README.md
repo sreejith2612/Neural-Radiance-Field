@@ -9,14 +9,13 @@ Presenting products in the most appealing way is essential in various industries
 ## Dataset Creation and Pre-processing
 ### Dataset Creation
 In this research, as existing datasets do not fully meet our requirements, we undertake the task of creating our own dataset. To achieve this, we capture videos of objects or scenes from multiple viewpoints, ensuring comprehensive coverage. These videos are then processed to extract individual frames using ffmpeg, resulting in a sequence of images that form the basis of our dataset.
-![Original input](![image](https://github.com/sreejith2612/Neural-Radiance-Field/assets/67188299/50e5d8d3-3b47-470d-9aa2-6e3ce54860e6)
- "Video to sequence of frames")
+
+![image](https://github.com/sreejith2612/Neural-Radiance-Field/assets/67188299/e44ae28b-cd2e-42b6-83d3-9cc2f470b409)
 
 ### Data Pre-processing
 In our research, we perform data pre-processing techniques such as background removal and computing values of pose, images, and focal parameters.
 
-![Data Pre-processing](![image](https://github.com/sreejith2612/Neural-Radiance-Field/assets/67188299/ca7ba5b7-81ed-47aa-8e56-0e430b583ce1)
- "Background removal from Frames")
+![image](https://github.com/sreejith2612/Neural-Radiance-Field/assets/67188299/0f18e13d-51ab-46eb-9e08-026154bfd7c3)
 
 ## Proposed Solution
 Our primary objective in developing the proposed project was to revolutionize the process of 3D reconstruction from 2D images, aiming to produce highly realistic 3D models across various domains. The project utilizes a combination of ray sampling, neural network processing, and volume rendering techniques to achieve robust and photorealistic 3D reconstruction from 2D images.
